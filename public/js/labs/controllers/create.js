@@ -1,4 +1,13 @@
-var LabCreator = new Class({
+/* 
+ * Created by Palo Verde Programming Services, LLC.
+ * All rights reserved unless otherwise specified under contract.
+ * http://palo-verde.us/
+ * @author Sam McCallum <sam@palo-verde.us>
+ * @copyright Jul 20, 2010
+ */
+
+
+var Create_Controller = new Class({
 	options: {
 		errors: "error",
 		labs: "labs",
