@@ -1,0 +1,23 @@
+<h1>Create your lab</h1>
+<div id="labs"></div>
+
+<form id="new-lab" action="#" method="post">
+	<fieldset>
+		<p>
+			<label for="lab-name">
+				Make a new Lab, enter a name.
+			</label>
+		</p>
+		<input type="text" name="lab[name]" id="lab-name" />
+		<input type="submit" class="submit" name="make-lab" id="make-lab" value="Create It" />
+	</fieldset>
+</form>
+
+<div id="error">
+
+</div>
+
+<script type="text/javascript" src="/js/new-lab.js"></script>
+<script type="text/javascript">
+	var labCreator = new LabCreator();
+</script>

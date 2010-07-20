@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<!-- dynamic meta tags -->
+		<?php
+		$this->headMeta()
+			->appendName("keywords","Palo Verde Labs, lab, project managment, social coding, task list, social tasks, simple project managment")
+			->appendName("description", "Palo Verde Labs is project management simplified.  No accounts, no logins, just tasks and discussions.")
+			->appendHttpEquiv("Content-Type","text/html; charset=utf-8")
+			->appendHttpEquiv("Content-Language","en-US");
+		?>
+		<?=$this->headMeta();?>
+		
+		<!-- dynamic title tag -->
+		<?php
+			$this->headTitle("Palo Verde Labs");
+			// $this->headTitle("Subpage Name");
+			$this->headTitle()->setSeparator(" - ");
+			// Title would be "Project - Subpage Name"
+		?>
+		<?=$this->headTitle();?>
+
+		<!-- dynamic header link tags -->
+		<?php
+			$this->headLink()->appendStylesheet("/css/default.css");
+		?>
+		<?=$this->headLink();?>
+
+		<!-- dynamic header style tags for inline styles -->
+		<?=$this->headStyle();?>
+
+		<!-- dynamic head script (javascript) tags -->
+		<?php
+		$this->headScript()
+					// MooTools 1.2.4
+				->prependFile("/js/mootools/more.js","text/javascript")
+				->prependFile("/js/mootools/core.js","text/javascript");
+		?>
+		<?=$this->headScript();?>
+	</head>
+	
+	<body>
+		<div class="container_16">
+			<?=$this->layout()->content;?>
+		</div>
+		
+		<!--
+			Dynamic inline js at the bottom of the page.
+			For analytics, etc.
+		-->
+		<?=$this->inlineScript();?>
+	</body>
+</html>

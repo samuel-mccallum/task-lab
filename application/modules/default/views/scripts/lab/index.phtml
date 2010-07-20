@@ -1,0 +1,84 @@
+<script type="text/javascript">
+var lab = <?=Zend_Json::encode($this->lab->toArray());?>;
+</script>
+
+<div id="menu">
+	<h3 class="fl">Lab Controls</h3>
+	
+	<ul>
+		<li>
+			<a href="#" id="add-task-button">Add Task</a>
+
+			<div id="add-task-container" class="box" style="display: none;">
+				<form id="add-task" method="post" action="#">
+					<a href="#" class="close-task-form fr">Close</a>
+					<div class="clear"></div>
+					<fieldset>
+						<p>
+							<label>
+								Task status
+							</label>
+						</p>
+						<?=$this->formRadio("task[status]", "Waiting", null, array("Waiting", "Current", "Complete"));?>
+
+						<p>
+							<label for="task-name">
+								Task name
+							</label>
+						</p>
+						<?=$this->formText("task[name]");?>
+
+						<p>
+							<label for="task-description">
+								Task description (optional)
+							</label>
+						</p>
+						<?=$this->formTextarea("task[description]");?>
+
+						<p>
+							<?=$this->formSubmit("save-task", "Add Task");?>
+							<?=$this->formButton("cancel-save", "Cancel", array("class"=>"close-task-form"));?>
+						</p>
+					</fieldset>
+				</form>
+			</div>
+		</li>
+		
+		<li>
+			<a href="#">Notifications</a>
+		</li>
+		
+		<li>
+			<a href="#">Security</a>
+		</li>
+		
+		<li>
+			<a href="#"">Delete</a>
+		</li>
+	</ul>
+</div>
+<div class="clear"></div>
+
+<h1><?=$this->lab->name;?></h1>
+
+<div id="update"></div>
+
+<div class="three-column">
+	<div class="fl third">
+		<h3>Waiting Tasks</h3>
+		<ul id="queued"></ul>
+	</div>
+
+	<div class="fl third">
+		<h3>Current Tasks</h3>
+		<ul id="current"></ul>
+	</div>
+
+	<div class="fl third">
+		<h3>Finished Tasks</h3>
+		<ul id="completed"></ul>
+	</div>
+</div>
+
+<script type="text/javascript">
+</script>

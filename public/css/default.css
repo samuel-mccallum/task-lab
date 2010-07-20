@@ -1,0 +1,179 @@
+@import "reset.css";
+@import "text.css";
+@import "960.css";
+
+body {
+	color: #333;
+}
+
+h1 {
+	color: #0bb04a;
+	border-bottom: 1px dotted #333;
+}
+
+h3 {
+	padding-left: 10px;
+	color: #0bb04a;
+	background-color: #333;
+}
+
+/*
+ * Remove image link border in FF/Moz
+ */
+ a img {
+	 border: none;
+}
+
+a {
+	color: #0bb04a;
+}
+
+input, textarea, button {
+	border: 1px solid #CCC;
+	background-color: #FEF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	font-size: 18px;
+	padding: 5px;
+}
+
+input[type="text"] {
+	width: 20em;
+}
+
+textarea {
+	width: 20em;
+	height: 10em;
+}
+
+form {
+	color: #444;
+}
+
+label {
+	font-weight: bold;
+}
+
+form p {
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+
+/*
+ * A button class
+ */
+.button {
+	font-size: 18px;
+}
+
+/*
+ * Some utility classes
+ */
+
+/* float left */
+.fl {
+	float: left;
+}
+
+/* float right */
+.fr {
+	float: right;
+}
+
+.no-padding {
+	padding: 0px;
+}
+
+.no-margin {
+	margin: 0px;
+}
+
+.full {
+	width: 100%;
+}
+
+.half {
+	width: 50%;
+}
+
+.third {
+	width: 33%;
+}
+
+.quarter {
+	width: 25%;
+}
+
+.fifth {
+	width: 20%;
+}
+
+.sixth {
+	width: 16.5%;
+}
+
+/*
+ * A box to frame divs in
+ */
+.box {
+	border: 1px solid #0bb04a;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	background: #fff;
+}
+
+/*
+ * Add task container
+ */
+#add-task-container {
+	position: absolute;
+	padding: 10px;
+}
+
+/*
+ * Lab Menu
+ */
+#menu {
+	background: #333;
+	height: 35px;
+	color: #0bb04a;
+}
+
+#menu > h3 {
+	margin-left: 10px;
+}
+
+#menu ul {
+	list-style: none;
+	margin:0px;
+}
+
+#menu ul li {
+	float: left;
+	margin-top: 4px;
+}
+
+#menu ul li > a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 3px;
+	border: 1px solid #333;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+#menu ul li > a:hover {
+	background-color: #777;
+	border: 1px solid #0bb04a;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+/*
+ * Three column container
+ */
+.three-column > div.third {
+	margin: 1px;
+}
