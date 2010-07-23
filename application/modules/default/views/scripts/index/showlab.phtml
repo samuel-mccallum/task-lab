@@ -4,7 +4,9 @@
 	</h3>
 
 	<h4>
-		<a href="/<?=$this->lab["code"];?>">http://dev.pvlabs.us/<?=$this->lab["code"];?></a>
+        <a href="/<?=$this->lab["code"];?>">
+            <?=$this->lab_url;?><?=$this->lab["code"];?>
+        </a>
 	</h4>
 
 	<p>
@@ -12,7 +14,7 @@
 	</p>
 
 	<p>
-		<a href="#">Share Via Email</a>
-		<a href="#">Copy Lab Link</a>
+		<a class="share-lab" rel="<?=$this->lab_url;?><?=$this->lab["code"];?>" href="#">Share Via Email</a>
+		<a class="copy-link" rel="<?=$this->lab_url;?><?=$this->lab["code"];?>" href="#">Copy Lab Link</a>
 	</p>
 </div>

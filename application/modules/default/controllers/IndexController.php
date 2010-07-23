@@ -19,5 +19,11 @@ class IndexController extends Zend_Controller_Action
 			"name"=>$this->_request->getParam("name")
 		);
 		$this->view->lab = $lab;
+
+        if (APPLICATION_ENV == "production") {
+            $this->view->lab_url = "http://lab.palo-verde.us/";
+        } else {
+            $this->view->lab_url = "http://dev.pvlabs.us/";
+        }
 	}
 }

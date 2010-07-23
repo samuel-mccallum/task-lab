@@ -7,8 +7,8 @@ try {
 	// Define application environment
 	$environments = array(
 		"localhost"=>"development",
-		"dev.site.com"=>"staging",
-		"site.com"=>"production"
+		"dev.pvlabs.us"=>"staging",
+		"lab.palo-verde.us"=>"production"
 	);
 
 	$host = $_SERVER["HTTP_HOST"];
