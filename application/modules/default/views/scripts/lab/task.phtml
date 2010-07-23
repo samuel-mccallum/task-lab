@@ -1,0 +1,28 @@
+<div class="task" id="{task_id}">
+    <h4 class="task-name">{task_name}</h4>
+    
+    <div class="clear"></div>
+    <div class="task-controls">
+        <a class="description" rel="description-{task_id}" href="#">Description</a>
+
+        <div class="task-status fr">
+            Status:
+            <a class="queued" rel="{task_id}" href="#">Waiting</a> /
+            <a class="current" rel="{task_id}" href="#">Current</a> /
+            <a class="completed" rel="{task_id}" href="#">Complete</a> --
+            <a class="delete" rel="{task_id}" href="#">Delete</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="task-created">
+        Created on {task_created}
+    </div>
+    
+    <div id="description-{task_id}" class="task-description">
+        <div style="text-align: right;">
+            <a href="#" class="close-description" rel="description-{task_id}">Close</a>
+        </div>
+        
+        {task_description}
+    </div>
+</div>
