@@ -1,6 +1,6 @@
-@import "reset.css";
-@import "text.css";
-@import "960.css";
+@import "/css/reset.css";
+@import "/css/text.css";
+@import "/css/960.css";
 
 body {
 	color: #333;
@@ -15,6 +15,11 @@ h3 {
 	padding-left: 10px;
 	color: #0bb04a;
 	background-color: #333;
+}
+
+h4 {
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 /*
@@ -176,4 +181,42 @@ form p {
  */
 .three-column > div.third {
 	margin: 1px;
+}
+
+/* perspective */
+.perspectives {
+	padding: 7px;
+}
+.perspectives a {
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+}
+.perspectives a.active {
+	font-style: italic;
+}
+
+.task-description {
+    position: absolute;
+    border: 1px solid gray;
+    background-color: white;
+    display: none;
+}
+
+.task {
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #ccc;
+}
+.task div {
+    font-size: 10px;
+    color: gray;
+}
+.task a {
+    text-decoration: none;
+    font-size: 10px;
+    font-style: italic;
+}
+
+.task-status {
+    margin-right: 20px;
 }

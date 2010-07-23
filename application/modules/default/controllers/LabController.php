@@ -34,7 +34,10 @@ class LabController extends Zend_Controller_Action {
 	public function indexAction() {
 		$this->view->headScript()
 			->appendFile("/js/taffydb/taffy.js")
-			->appendFile("/js/lab.js");
+			->appendFile("/js/labs/views/task.js")
+			->appendFile("/js/labs/models/task.js")
+			->appendFile("/js/labs/controllers/add_task.js")
+			->appendFile("/js/labs/controllers/task_list.js");
 
 		// Check for a code
 		if (!$this->_request->has("code"))
@@ -49,6 +52,12 @@ class LabController extends Zend_Controller_Action {
 			throw new Exception(self::ERROR_INVALID_CODE, 404);
 
 		$this->view->lab = $lab;
+
+        $this->view->headTitle($lab->name);
 	}
+
+    public function taskAction() {
+        $this->_helper->layout->disableLayout();
+    }
 }
 ?>

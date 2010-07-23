@@ -12,12 +12,45 @@
 		<input type="submit" class="submit" name="make-lab" id="make-lab" value="Create It" />
 	</fieldset>
 </form>
-
-<div id="error">
-
+<div class="fr">
+<!-- AddThis Button BEGIN -->
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+<div class="addthis_toolbox addthis_default_style">
+<a href="http://www.addthis.com/bookmark.php?v=250&amp;username=sealedbysanta" class="addthis_button_compact">Share</a>
+<span class="addthis_separator">|</span>
+<a class="addthis_button_facebook"></a>
+<a class="addthis_button_myspace"></a>
+<a class="addthis_button_google"></a>
+<a class="addthis_button_twitter"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=sealedbysanta"></script>
+<!-- AddThis Button END -->
 </div>
 
-<script type="text/javascript" src="/js/new-lab.js"></script>
+<div id="error"></div>
+
+<script type="text/javascript" src="/js/labs/controllers/create.js"></script>
 <script type="text/javascript">
-	var labCreator = new LabCreator();
+	var creator = new Create_Controller();
 </script>
+
+<h1>Discuss Task Lab</h1>
+
+<div id="discussion">
+    <div id="disqus_thread"></div>
+	<script type="text/javascript">
+	  /**
+		* var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
+		*/
+	   var disqus_identifier = "tasklab";
+	   var disqus_developer = 1;
+	   var disqus_title = "Task Lab";
+	  (function() {
+	   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	   dsq.src = 'http://tasklab.disqus.com/embed.js';
+	   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	  })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=tasklab">comments powered by Disqus.</a></noscript>
+	<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>

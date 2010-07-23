@@ -63,7 +63,7 @@ class App_Service_Task {
 				throw new Exception(self::ERROR_SAVE_FAILED);
 			}
 		} else {
-			throw new Exception(sefl::ERROR_NOT_VALID);
+			throw new Exception(self::ERROR_NOT_VALID);
 		}
 
 		return $task->toArray();
@@ -73,5 +73,37 @@ class App_Service_Task {
 		$tasks = $this->db->findByLabId($lab_id);
 		return $tasks->toArray();
 	}
+
+    public function update($task) {
+        
+    }
+
+    public function change_status($task_id, $task_status) {
+        $valid_statuses = array(
+            "queued",
+            "current",
+            "completed"
+        );
+        $status_map = array(
+            "queued"=>"0",
+            "current"=>"1",
+            "completed"=>"2"
+        );
+
+        if (in_array($task_status, $valid_statuses)) {
+            $status = $status_map[$task_status];
+            $task = $this->db->find($task_id);
+            $task->status_id = $this->resolve_status($status);
+            $task->save();
+            return $task->toArray();
+        }
+
+        throw new Exception("Could not update task status.");
+    }
+
+    public function destory($task_id) {
+        $this->db->find($task_id)->delete();
+        return array("id"=>$task_id);
+    }
 }
 ?>

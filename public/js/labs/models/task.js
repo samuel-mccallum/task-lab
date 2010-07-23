@@ -31,11 +31,15 @@ var Task_Model = new Class({
 		this.service("create", params, callback);
 	},
 
-	update: function (task) {
-
+	update: function (task, callback) {
+        this.service("update", [task], callback);
 	},
 
-	destroy: function (id) {
+    changeStatus: function(task_id, task_status, callback) {
+        this.service("change_status", [task_id, task_status], callback);
+    },
 
+	destroy: function (id, callback) {
+        this.service("destory", [id], callback);
 	}
 });

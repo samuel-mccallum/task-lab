@@ -1,5 +1,10 @@
 <script type="text/javascript">
 var lab = <?=Zend_Json::encode($this->lab->toArray());?>;
+
+document.addEvent("domready", function () {
+	new AddTask_Controller();
+	new TaskList_Controller();
+});
 </script>
 
 <div id="menu">
@@ -43,7 +48,8 @@ var lab = <?=Zend_Json::encode($this->lab->toArray());?>;
 				</form>
 			</div>
 		</li>
-		
+
+		<!--
 		<li>
 			<a href="#">Notifications</a>
 		</li>
@@ -55,15 +61,57 @@ var lab = <?=Zend_Json::encode($this->lab->toArray());?>;
 		<li>
 			<a href="#"">Delete</a>
 		</li>
+		-->
 	</ul>
+	<div class="fr perspectives">
+		<a class="perspective" rel="task-perspective" href="#">Tasks</a>
+		/
+		<a class="perspective" rel="discussion-perspective" href="#">Discussion</a>
+	</div>
 </div>
 <div class="clear"></div>
 
-<h1><?=$this->lab->name;?></h1>
+<h1>
+	<?=$this->lab->name;?>
+</h1>
 
 <div id="update"></div>
 
-<div class="three-column">
+<div id="dashboard-perspective" style="display: none;"></div>
+
+<div id="discussion-perspective" class="perspective-container" style="display: none;">
+	<!--
+	<script type="text/javascript">
+	var idcomments_acct = 'dfd7138bebfbc3bc29d7125129935fec';
+	var idcomments_post_id = lab.code;
+	var idcomments_post_url;
+	var idcomments_post_title = lab.name;
+	</script>
+
+	<span id="IDCommentsPostTitle" style="display:none"></span>
+	<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+	-->
+
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	  /**
+		* var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
+		*/
+	   var disqus_identifier = lab.id;
+	   var disqus_developer = 1;
+	   var disqus_title = lab.name;
+	  (function() {
+	   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	   dsq.src = 'http://tasklab.disqus.com/embed.js';
+	   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	  })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=tasklab">comments powered by Disqus.</a></noscript>
+	<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</div>
+
+<div id="task-perspective" class="perspective-container three-column">
 	<div class="fl third">
 		<h3>Waiting Tasks</h3>
 		<ul id="queued"></ul>
@@ -80,5 +128,20 @@ var lab = <?=Zend_Json::encode($this->lab->toArray());?>;
 	</div>
 </div>
 
+<!--
+<script>
+var idcomments_acct = 'dfd7138bebfbc3bc29d7125129935fec';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+-->
+
 <script type="text/javascript">
+	$$(".perspective").addEvent("click", function (ev) {
+		ev.preventDefault();
+		$$(".perspective-container").hide();
+		$(this.get("rel")).show();
+	});
 </script>

@@ -7,10 +7,44 @@
  */
 
 var Task_View = new Class({
-	initialize: function () {},
+    template: false,
+    templateLaoded: false,
+    queue: [],
+
+	initialize: function () {
+        this.loadTemplate();
+    },
+
+    loadTemplate: function () {
+        var request = new Request(
+            {
+                url: "/lab/task",
+                onSuccess: function (resText) {
+                    this.template = resText;
+                    this.templateLoaded = true;
+                    if (this.queue.length)
+                        this.renderQueue();
+                }.bind(this)
+            }
+        );
+        request.get();
+    },
+
+    addToQueue: function (options) {
+        this.queue.push(options);
+    },
+
+    renderQueue: function () {
+        this.queue.each(function (item) {
+            this.render(item);
+        }.bind(this));
+    },
 
 	render: function (options) {
-		this[options.view](options.data);
+        if (this.templateLoaded)
+            this[options.view](options.data);
+        else
+            this.addToQueue(options);
 	},
 
 	list: function (tasks) {
@@ -34,6 +68,16 @@ var Task_View = new Class({
 	},
 
 	task: function (task, holder) {
-		$(holder).grab(new Element("h4").set("text", task.name));
+        var el = new Element("div");
+        el.set("html", this.template.substitute(
+            {
+                task_id: task.id,
+                task_name: task.name,
+                task_description: task.description,
+                task_created: task.created_on
+            }
+        ));
+        $(holder).grab(el);
+        document.fireEvent(":task rendered", el);
 	}
 });
