@@ -13,7 +13,12 @@
 		Lab Name: <span class="name"><?=$this->lab["name"];?></span>
 	</p>
 
-	<p>
+    <div class="addthis_toolbox addthis_default_style">
+        <a class="addthis_button_email" addthis:description="<?=$this->lab_url;?><?=$this->lab["code"];?>"  style="cursor:pointer"></a>
+        <a class="addthis_button_favorites" addthis:url="<?=$this->lab_url;?><?=$this->lab["code"];?>" addthis:title="<?=$this->lab["name"];?>" style="cursor:pointer"></a>
+    </div>
+
+	<p style="display:none;">
 		<a class="share-lab" rel="<?=$this->lab_url;?><?=$this->lab["code"];?>" href="#">Share Via Email</a>
 		<a class="copy-link" rel="<?=$this->lab_url;?><?=$this->lab["code"];?>" href="#">Copy Lab Link</a>
 	</p>

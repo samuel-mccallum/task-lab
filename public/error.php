@@ -2,6 +2,4 @@
 
 <h3>Error Details</h3>
 
-<?php
-Zend_Debug::dump($e);
-?>
+<?=Zend_Debug::dump($e);?>

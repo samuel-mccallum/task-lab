@@ -16,14 +16,14 @@
 <!-- AddThis Button BEGIN -->
 <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
 <div class="addthis_toolbox addthis_default_style">
-<a href="http://www.addthis.com/bookmark.php?v=250&amp;username=sealedbysanta" class="addthis_button_compact">Share</a>
+<a href="http://www.addthis.com/bookmark.php?v=250" class="addthis_button_compact">Share</a>
 <span class="addthis_separator">|</span>
 <a class="addthis_button_facebook"></a>
 <a class="addthis_button_myspace"></a>
 <a class="addthis_button_google"></a>
 <a class="addthis_button_twitter"></a>
 </div>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=sealedbysanta"></script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>
 <!-- AddThis Button END -->
 </div>
 
@@ -43,8 +43,8 @@
 		* var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
 		*/
 	   var disqus_identifier = "tasklab";
-	   var disqus_developer = 1;
 	   var disqus_title = "Task Lab";
+	   var disqus_developer = <?=(APPLICATION_ENV == "production") ? 0 : 1;?>;
 	  (function() {
 	   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	   dsq.src = 'http://tasklab.disqus.com/embed.js';

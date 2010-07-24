@@ -80,25 +80,13 @@ document.addEvent("domready", function () {
 <div id="dashboard-perspective" style="display: none;"></div>
 
 <div id="discussion-perspective" class="perspective-container" style="display: none;">
-	<!--
-	<script type="text/javascript">
-	var idcomments_acct = 'dfd7138bebfbc3bc29d7125129935fec';
-	var idcomments_post_id = lab.code;
-	var idcomments_post_url;
-	var idcomments_post_title = lab.name;
-	</script>
-
-	<span id="IDCommentsPostTitle" style="display:none"></span>
-	<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-	-->
-
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">
 	  /**
 		* var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
 		*/
 	   var disqus_identifier = lab.id;
-	   var disqus_developer = 1;
+	   var disqus_developer = <?=(APPLICATION_ENV == "production") ? 0 : 1;?>;
 	   var disqus_title = lab.name;
 	  (function() {
 	   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -127,16 +115,6 @@ document.addEvent("domready", function () {
 		<ul id="completed"></ul>
 	</div>
 </div>
-
-<!--
-<script>
-var idcomments_acct = 'dfd7138bebfbc3bc29d7125129935fec';
-var idcomments_post_id;
-var idcomments_post_url;
-</script>
-<span id="IDCommentsPostTitle" style="display:none"></span>
-<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
--->
 
 <script type="text/javascript">
 	$$(".perspective").addEvent("click", function (ev) {

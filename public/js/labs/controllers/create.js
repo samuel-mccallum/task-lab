@@ -61,6 +61,7 @@ var Create_Controller = new Class({
 		this.fetcher = new Request.HTML({url: this.options.fetcher});
 		this.fetcher.addEvent("success", function (tree, node, html) {
 			$(this.options.labs).adopt(tree);
+            addthis.toolbox(".addthis_toolbox");
 		}.bind(this));
 	},
 
